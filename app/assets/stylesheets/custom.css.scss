@@ -110,3 +110,16 @@ footer {
   font-weight: bold;
   font-size: 1.9rem;
 }
+
+.article-body {
+  margin-bottom: 10px;
+}
+
+.article-meta-details {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  margin-top: 10px;
+  padding: 5px 0;
+}
