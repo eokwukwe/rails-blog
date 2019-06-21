@@ -1,0 +1,28 @@
+<%= render "shared/errors", obj: @user %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for @user do |f| %>
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control", autofocus: true, placeholder: "Enter a username" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter an email" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :password %>
+      <%= f.text_field :password, class: "form-control", placeholder: "Enter a password" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-primary") %>
+    </div>
+    <% end %>
+    <div class="col-xs-4 col-xs-offset-4">
+      [ <%= link_to "Back to Articles listing", articles_path %> ]
+    </div>
+  </div>
+</div>
