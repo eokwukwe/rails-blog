@@ -9,10 +9,14 @@ body {
 }
 
 .main-container {
-  min-height: calc(100vh - 40px);
-  padding-top: 60px;
+  min-height: calc(100vh - 100px);
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
+.flash-messages {
+  margin-top: 60px;
+}
 .navbar {
   border-radius: 0px;
 }
@@ -92,4 +96,8 @@ footer {
 .form-footer {
   display: flex;
   justify-content: flex-end;
+}
+
+.error-messages {
+  list-style: none;
 }
