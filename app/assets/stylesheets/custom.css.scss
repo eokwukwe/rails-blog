@@ -5,7 +5,7 @@ $navbar-default-color: #fff;
 @import 'bootstrap';
 
 body {
-  background-color: lightgrey;
+  background-color: #f5f5f5;
 }
 
 .main-container {
@@ -87,4 +87,9 @@ footer {
     color: #222;
     text-decoration: none;
   }
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
 }
