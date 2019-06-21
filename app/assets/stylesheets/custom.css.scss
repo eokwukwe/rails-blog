@@ -1,2 +1,90 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+$navbar-default-bg: #337ab7;
+$navbar-default-color: #fff;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+body {
+  background-color: lightgrey;
+}
+
+.main-container {
+  min-height: calc(100vh - 40px);
+  padding-top: 60px;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.container .jumbotron {
+  border-radius: 0px;
+}
+
+.jumbotron {
+  background-image: asset-url('bg-blog.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+
+  h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+  }
+
+  .btn-large {
+    margin-top: 100px;
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid darkgray;
+  height: 40px;
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+
+    li {
+      margin-left: 15px;
+    }
+  }
+
+  a:hover {
+    color: #222;
+    text-decoration: none;
+  }
+}
