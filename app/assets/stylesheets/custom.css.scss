@@ -17,6 +17,11 @@ body {
 .flash-messages {
   margin-top: 60px;
 }
+
+.well {
+  background-color: #fff;
+}
+
 .navbar {
   border-radius: 0px;
 }
@@ -122,4 +127,9 @@ footer {
   border-bottom: 1px solid lightgray;
   margin-top: 10px;
   padding: 5px 0;
+}
+
+.listing {
+  list-style: none;
+  padding-left: 0;
 }
