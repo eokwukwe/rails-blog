@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# UsersController
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Sign up success. Welcome to Alpha blog #{@user.username}"
+      flash[:success] = "Welcome to  the Alpha blog #{@user.username}"
       redirect_to articles_path
     else
       render 'new'
@@ -22,11 +23,15 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Account updated successfully."
+      flash[:success] = 'Account updated successfully.'
       redirect_to articles_path
     else
       render 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
