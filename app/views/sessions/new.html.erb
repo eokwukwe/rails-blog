@@ -1,0 +1,24 @@
+<h1 align="center">Login</h1>
+
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= form_for(:session, url: login_path) do |f| %>
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autofocus: true %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control", placeholder: "Enter your password", autocomplete: "off" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+    <div class="col-xs-8 col-xs-offset-2">
+      [ <%= link_to "Back to Articles listing", articles_path %> ]
+    </div>
+  </div>
+</div>
