@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
-gem 'rails-controller-testing'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -63,6 +62,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rails-controller-testing', '1.0.2'
 end
 
 group :production do
