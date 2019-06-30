@@ -132,6 +132,11 @@ footer {
 .listing {
   list-style: none;
   padding-left: 0;
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .show-article {
@@ -149,4 +154,17 @@ footer {
 .edit-category {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+
+    a {
+      font-size: 0.7rem;
+    }
+  }
 }
