@@ -1,7 +1,7 @@
 <h1 align="center">Login</h1>
 
 <div class="row">
-  <div class="col-xs-8 col-xs-offset-2">
+  <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
     <div class="form-group col-md-10 col-md-offset-1">
       <%= f.label :email %>
@@ -17,7 +17,7 @@
       <%= f.submit "Log in", class: "btn btn-primary", data: { "disable-with": "Logging in..." } %>
     </div>
     <% end %>
-    <div class="col-xs-8 col-xs-offset-2">
+    <div align="center" class="col-md-6 col-md-offset-3">
       [ <%= link_to "Back to Articles listing", articles_path %> ]
     </div>
   </div>
