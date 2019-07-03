@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     process convert: 'png'
 
     def public_id
-      "codeblog/users/#{model.username.to_s.downcase.gsub(/\W, '-'/)}-#{Time.now.to_i}"
+      "codeblog/users/#{model.username.to_s.downcase.gsub(/\W/, '-')}-#{Time.now.to_i}"
     end
   end
 
