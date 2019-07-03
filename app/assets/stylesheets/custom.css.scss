@@ -43,6 +43,10 @@ body {
   text-decoration: none;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
 .center {
   text-align: center;
 }
@@ -93,6 +97,13 @@ footer {
   a:hover {
     color: #222;
     text-decoration: none;
+  }
+}
+
+.user-image {
+  display: block;
+  img {
+    width: 80px;
   }
 }
 
@@ -156,6 +167,12 @@ footer {
 .edit-category {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

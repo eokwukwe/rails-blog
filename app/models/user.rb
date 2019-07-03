@@ -2,6 +2,7 @@
 
 # User
 class User < ApplicationRecord
+  mount_uploader :image_url, ImageUploader
   has_many :articles, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :username, presence: true, uniqueness: { case_sensitive: false },

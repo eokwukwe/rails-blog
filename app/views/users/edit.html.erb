@@ -1,3 +1,39 @@
+<%= render "shared/errors", obj: @user %>
+
 <h1 align="center">Edit your account</h1>
 
-<%= render "form" %>
+<div class="row">
+  <div align="center" class="col-md-6 col-md-offset-3">
+    <%= gravatar_for @user, size: 150 %>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user, multipart: true do |f| %>
+    <div align="center" class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :image_url %>
+      <%= f.file_field :image_url, 'up-data': '.image-preview'.to_json, accept: "image/*" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control", autofocus: true, placeholder: "Enter a username" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter an email" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control", placeholder: "Enter a password" %>
+    </div>
+
+    <div class="form-group col-md-10 col-md-offset-1">
+      <%= f.submit "Update account", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+    <div align="center" class="col-md-6 col-md-offset-3">
+      [ <%= link_to "Back to Articles listing", articles_path %> ]
+    </div>
+  </div>
+</div>
