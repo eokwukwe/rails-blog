@@ -4,7 +4,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit show update destroy]
   before_action :require_user, except: %i[index show]
-  before_action :require_non_admin_user, only: %i[create]
+  before_action :require_non_admin_user, only: %i[new create]
   before_action :require_same_user, only: %i[edit update]
   before_action :require_admin_and_same_user, only: %i[destroy]
 
@@ -31,7 +31,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update(article_params)
+    article_data = calculate_time_to_read(article_params)
+    if @article.update(article_data)
       flash[:success] = 'Article updated successfully'
       redirect_to article_path(@article)
     else
@@ -57,9 +58,6 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find_by(slug: params[:slug])
   end
-  # def set_article
-  #   @article = Article.find(params[:id])
-  # end
 
   def require_same_user
     if current_user != @article.user
@@ -69,7 +67,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_non_admin_user
-    unless !current_user.admin?
+    if current_user.admin?
       flash[:danger] = 'Admin cannot create an article'
       redirect_to root_path
     end
@@ -84,7 +82,7 @@ class ArticlesController < ApplicationController
 
   def calculate_time_to_read(params)
     article_words = params[:description].split(' ').length
-    params[:read_time] = (article_words.to_f / 200).ceil.to_s
+    params[:read_time] = (article_words.to_f / 250).ceil.to_s
     params
   end
 end
