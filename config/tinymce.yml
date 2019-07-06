@@ -1,0 +1,19 @@
+menubar: false
+toolbar:
+  - styleselect | bold italic underline image link codesample imagetools bullist numlist
+plugins:
+  - image
+  - link
+  - codesample
+  - imagetools
+  - lists
+  - autosave
+  - autoresize
+  - autolink
+  - advlist
+min_height: 350
+autoresize_bottom_margin: 10
+images_upload_base_path: 'files'
+images_upload_url: 'postAcceptor.php'
+file_picker_types: 'image'
+automatic_uploads: true

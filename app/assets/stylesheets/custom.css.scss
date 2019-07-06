@@ -8,8 +8,22 @@ body {
   background-color: #f5f5f5;
 }
 
+.tox-tinymce {
+  border: none !important;
+  border-radius: 5px !important;
+
+  .tox-toolbar {
+    border-top: none !important;
+  }
+
+  .tox-statusbar{
+    display: none !important;
+  }
+}
+
 .main-container {
-  min-height: calc(100vh - 45px);
+  min-height: calc(100vh - 100px);
+  padding-bottom: 15px;
 }
 
 .flash-messages {
@@ -116,9 +130,9 @@ footer {
   list-style: none;
 }
 
-.article-card {
-  min-height: 219px;
-}
+// .article-card {
+//   min-height: 219px;
+// }
 
 .article-description {
   background-color: #fff;
@@ -131,6 +145,10 @@ footer {
 
 .article-body {
   margin-bottom: 10px;
+}
+
+.article-category {
+  margin-top: 5px;
 }
 
 .article-meta-details {

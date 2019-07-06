@@ -1,5 +1,5 @@
 <h2 align="center">
-  <%= @article.title %>
+  <%= @article.title.titleize %>
 </h2>
 
 <div class="well col-sm-10 col-sm-offset-1 article-description">
@@ -14,7 +14,7 @@
           </span>
         </li>
         <li class="article-title">
-          <%= link_to @article.user.username, user_path(@article.user) %>
+          <%= link_to "@#{@article.user.username}", user_path(@article.user) %>
         </li>
         <li>
           <small>
@@ -25,12 +25,14 @@
     </div>
   </div>
   <% end %>
-  <%= simple_format(@article.description) %>
+  <!-- <%= simple_format(@article.description) %> -->
+  <%= sanitize @article.description %>
   <% if @article.categories.any? %>
+  <hr>
   <p>Categories: <%= render @article.categories %></p>
   <% end %>
   <hr>
-  <div class="article-actions">
+  <div align="center" class="article-actions">
     <% if logged_in? && current_user == @article.user %>
 
     <%= link_to "Edit", edit_article_path(@article), class: "btn btn-xs btn-primary" %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :photos
   root 'pages#home'
   get '/about', to: 'pages#about'
 

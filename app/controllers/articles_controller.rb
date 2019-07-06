@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   before_action :require_admin_and_same_user, only: %i[destroy]
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 8)
+    @articles = Article.paginate(page: params[:page], per_page: 6)
                        .order('created_at DESC')
   end
 

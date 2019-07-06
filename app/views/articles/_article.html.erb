@@ -3,10 +3,10 @@
   <div class="col-sm-6 article-card">
     <div class="well well-lg article-description">
       <div class="article-title">
-        <%= link_to article.title, article_path(article) %>
+        <%= link_to article.title.titleize, article_path(article) %>
       </div>
       <div class="article-body">
-        <%= truncate(article.description, length: 60) %>
+        <%= sanitize article.description.truncate(60) %>
         <div class="article-meta-details">
           <small class="text-muted">
              <strong>

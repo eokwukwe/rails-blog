@@ -31,6 +31,8 @@ gem 'will_paginate', '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'tinymce-rails'
+gem 'trix-rails', require: 'trix'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
