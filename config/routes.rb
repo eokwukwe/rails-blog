@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end
 
   # post 'users', to: 'users#create'
-  resources :articles, param: :slug
+  resources :articles, param: :slug do
+    resources :likes
+  end
   resources :users, except: [:new] do
     member do
       get :following, :followers
