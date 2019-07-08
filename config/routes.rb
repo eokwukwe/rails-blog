@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   # post 'users', to: 'users#create'
   resources :articles, param: :slug
-  resources :users, except: [:new]
+  resources :users, except: [:new] do
+    member do
+      get :following, :followers
+    end
+  end
   resources :categories, except: [:destroy]
+  resources :relationships, only: %i[create destroy]
 end
