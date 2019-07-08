@@ -16,7 +16,7 @@ body {
     border-top: none !important;
   }
 
-  .tox-statusbar{
+  .tox-statusbar {
     display: none !important;
   }
 }
@@ -67,6 +67,12 @@ body {
 
 .container .jumbotron {
   border-radius: 0px;
+}
+
+.profile-image {
+  img {
+    width: 25px;
+  }
 }
 
 .jumbotron {
