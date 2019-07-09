@@ -51,6 +51,7 @@
     <div class="article-stats">
       <%= render 'stats', article: @article %>
     </div>
+    <% if logged_in? %>
     <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
     <div class="like-unlike-actions">
       <% if pre_like %>
@@ -59,5 +60,6 @@
       <%= render 'like' %>
       <% end %>
     </div>
+    <% end %>
   </div>
 </div>
