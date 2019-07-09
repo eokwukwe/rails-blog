@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_181356) do
+ActiveRecord::Schema.define(version: 2019_07_09_081611) do
 
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_181356) do
     t.integer "user_id"
     t.string "slug"
     t.string "read_time"
+    t.integer "view_count", default: 0
     t.index ["slug"], name: "index_articles_on_slug", unique: true
   end
 

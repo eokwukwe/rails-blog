@@ -41,7 +41,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @article.increment!(:view_count)
+  end
 
   def destroy
     @article.destroy

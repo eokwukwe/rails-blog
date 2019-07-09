@@ -9,30 +9,22 @@
         <%= sanitize article.description.truncate(60) %>
         <div class="article-meta-details">
           <small class="text-muted">
-             <strong>
-               <%= link_to "@#{article.user.username if article.user}", user_path(article.user) %>,
+            <strong>
+              <%= link_to "@#{article.user.username if article.user}", user_path(article.user) %>,
             </strong>
-            <%= time_ago_in_words(article.created_at) %> ago | 
+            <%= time_ago_in_words(article.created_at) %> ago |
             <strong><%= article.read_time %> min. read</strong>
           </small>
         </div>
       </div>
-      <% if article.categories.any? %>
-      <p>Categories: <%= render article.categories %></p>
-      <% end %>
-      <% if logged_in? && current_user == article.user %>
-      <div class="article-actions">
-        <%= link_to "Edit", edit_article_path(article), class: "btn btn-xs btn-primary" %>
-
-        <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure you want to delete this article?"}, class: "btn btn-xs btn-danger" %>
+      <p>
+        Categories: <%= render article.categories if article.categories.any? %>
+      </p>
+      <div class="article-stats">
+        <div class="article-stats">
+          <%= render 'stats', article: article %>
+        </div>
       </div>
-      <% end %>
-
-      <% if logged_in? && current_user.admin? %>
-      <div class="article-actions">
-        <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure you want to delete this article?"}, class: "btn btn-xs btn-danger" %>
-      </div>
-      <% end %>
     </div>
   </div>
   <% end %>
