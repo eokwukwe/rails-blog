@@ -26,10 +26,8 @@
   </div>
   <% end %>
   <%= sanitize @article.description %>
-  <% if @article.categories.any? %>
   <hr>
-  <p>Categories: <%= render @article.categories %></p>
-  <% end %>
+  <p>Categories: <%= render @article.categories if @article.categories.any? %></p>
   <hr>
   <div align="center" class="article-actions">
     <% if logged_in? && current_user == @article.user %>
@@ -49,17 +47,8 @@
   </div>
   <div class="article-footer">
     <div class="article-stats">
-      <%= render 'stats', article: @article %>
+      <%= render 'shared/article_stats', article: @article %>
     </div>
-    <% if logged_in? %>
-    <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
-    <div class="like-unlike-actions">
-      <% if pre_like %>
-      <%= render 'unlike', pre_like: pre_like %>
-      <% else %>
-      <%= render 'like' %>
-      <% end %>
-    </div>
-    <% end %>
+    <%= render 'like_form' if !current_user.admin? %>
   </div>
 </div>

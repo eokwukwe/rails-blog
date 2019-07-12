@@ -25,4 +25,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def require_non_admin_user
+    if current_user.admin?
+      flash[:danger] = 'Unauthorised Admin action'
+      redirect_to root_path
+    end
+  end
 end

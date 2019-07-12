@@ -20,8 +20,6 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def create
-    # @article = Article.new(article_params)
-    # @article.user = current_user
     @article = current_user.articles.build(article_params)
     if @article.save
       flash[:success] = 'Article created successfully'
@@ -65,13 +63,6 @@ class ArticlesController < ApplicationController
   def require_same_user
     if current_user != @article.user
       flash[:danger] = 'Articles can only be edited by their author'
-      redirect_to root_path
-    end
-  end
-
-  def require_non_admin_user
-    if current_user.admin?
-      flash[:danger] = 'Admin cannot create an article'
       redirect_to root_path
     end
   end

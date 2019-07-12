@@ -1,0 +1,7 @@
+<%= button_to 'Like', article_likes_path(@article), 
+                      method: :post, remote: true, 
+                      class: "btn btn-xs btn-info", id: "btn-like" %>
+
+<%= button_to 'Unlike', article.likes.find_by(article_id: @article.id), 
+                                              method: :delete, remote: true,
+                                              class: "btn btn-xs btn-warning" %>

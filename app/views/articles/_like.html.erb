@@ -1,2 +1,4 @@
-<%= button_to 'Like', article_likes_path(@article), 
-                      method: :post, class: "btn btn-xs btn-info" %>
+<%= form_for(@article.likes.build, remote: true) do |f| %>
+<div><%= hidden_field_tag :article_slug, @article.slug %></div>
+<%= f.submit "Like", class: "btn btn-xs btn-info" %>
+<% end %>

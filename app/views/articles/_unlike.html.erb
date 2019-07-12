@@ -1,2 +1,5 @@
-<%= button_to 'Unlike', article_like_path(@article, pre_like), 
-                        method: :delete, class: "btn btn-xs btn-warning" %>
+<%= form_for(@article.likes.find_by(article_id: @article.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+<%= f.submit "Unlike", class: "btn btn-xs btn-warning" %>
+<% end %>

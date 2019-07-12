@@ -33,7 +33,6 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'tinymce-rails'
 gem 'font-awesome-sass', '~> 5.8.1'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

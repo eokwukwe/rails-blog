@@ -10,19 +10,14 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  scope 'articles' do
-    put '/:id' => 'articles#update'
-  end
-
-  # post 'users', to: 'users#create'
-  resources :articles, param: :slug do
-    resources :likes
-  end
+  resources :articles, param: :slug
   resources :users, except: [:new] do
     member do
       get :following, :followers
     end
   end
+
+  resources :likes, only: %i[create destroy]
   resources :categories, except: [:destroy]
   resources :relationships, only: %i[create destroy]
 end

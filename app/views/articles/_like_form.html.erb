@@ -1,0 +1,10 @@
+<% if logged_in? %>
+<div id="like-form" class="like-unlike-actions">
+  <% liked = @article.likes.find { |like| like.user_id == current_user.id} %>
+  <% if liked %>
+  <%= render 'unlike' %>
+  <% else %>
+  <%= render 'like' %>
+  <% end %>
+</div>
+<% end %>

@@ -1,6 +1,5 @@
 <% unless current_user?(@user) %>
 <div id="follow_form">
-  <hr>
   <% if current_user.following?(@user) %>
   <%= render 'unfollow' %>
   <% else %>

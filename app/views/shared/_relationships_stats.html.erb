@@ -1,0 +1,15 @@
+<% @user ||= current_user && !@user.admin? %>
+<div class="relationship">
+  <span class="btn btn-success btn-xs">
+    Followers
+    <span class="badge" id="followers">
+      <%= @user.followers.count %>
+    </span>
+  </span>
+  <span class="btn btn-primary btn-xs">
+    Following
+    <span class="badge" id="following">
+      <%= @user.following.count %>
+    </span>
+  </span>
+</div>

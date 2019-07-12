@@ -225,6 +225,14 @@ footer {
   font-size: 1.5rem;
 }
 
+.category {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #fff;

@@ -2,25 +2,23 @@
 
 # LikesController
 class LikesController < ApplicationController
-  before_action :find_article
+  before_action :require_non_admin_user, only: %i[create destroy]
+  before_action :find_article, only: [:create]
   before_action :find_like, only: [:destroy]
 
   def create
-    if already_liked?
-      flash[:danger] = "You've already liked this article"
-    else
-      @article.likes.create(user_id: current_user.id)
+    @article.likes.create(user_id: current_user.id)
+    respond_to do |format|
+      format.js
     end
-    redirect_to article_path(@article)
   end
 
   def destroy
-    if !already_liked?
-      flash[:notice] = 'Cannot unlike'
-    else
-      @like.destroy
+    @article = Article.find(@liked.article_id)
+    @liked.destroy if already_liked?(current_user, @article)
+    respond_to do |format|
+      format.js
     end
-    redirect_to article_path(@article)
   end
 
   private
@@ -31,11 +29,12 @@ class LikesController < ApplicationController
   end
 
   # Check is a user has already liked an article
-  def already_liked?
-    Like.where(user_id: current_user.id, article_id: @article.id).exists?
+  def already_liked?(current_user, article)
+    Like.where(user_id: current_user.id,
+               article_id: article.id).exists?
   end
 
   def find_like
-    @like = @article.likes.find_by(article_id: @article.id)
+    @liked = Like.find(params[:id])
   end
 end
