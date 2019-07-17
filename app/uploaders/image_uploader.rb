@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# ImageUploader
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
@@ -17,10 +18,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process convert: 'png'
 
     def public_id
-      if model.is_a(User)
+      if model.is_a?(User)
         "codeblog/users/#{model.username.to_s.downcase.gsub(/\W/, '-')}
         -#{Time.now.to_i}"
-      elsif model.is_a(Article)
+      elsif model.is_a?(Article)
         "codeblog/articles/#{model.slug}-#{Time.now.to_i}"
       end
     end
