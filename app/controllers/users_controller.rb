@@ -8,8 +8,14 @@ class UsersController < ApplicationController
   before_action :require_admin_and_same_user, only: %i[destroy]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
-                 .order('created_at DESC')
+    @users = if !current_user.admin?
+               User.paginate(page: params[:page], per_page: 5)
+                   .where('admin = ?', false)
+                   .order('created_at DESC')
+             else
+               User.paginate(page: params[:page], per_page: 5)
+                   .order('created_at DESC')
+             end
   end
 
   def new

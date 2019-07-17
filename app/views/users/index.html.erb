@@ -1,6 +1,8 @@
 <h1 align="center">All Alpha bloggers</h1>
 
 <div align="center">
+
+
   <% @users.each do |user| %>
   <ul class="listing">
     <div class="row">
@@ -14,14 +16,15 @@
             <%= pluralize(user.articles.count, 'article') if !user.admin? %>
           </small>
           <% if logged_in? && current_user.admin? %>
-          <li>
-            <%= link_to "Delete User", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete the user and all user's articles"} %>
-          </li>
-          <% end %>
+        <li>
+          <%= link_to "Delete User", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete the user and all user's articles"} %>
+        </li>
+        <% end %>
         </li>
       </div>
     </div>
   </ul>
+
   <% end %>
 </div>
 
