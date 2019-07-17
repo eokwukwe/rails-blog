@@ -2,7 +2,6 @@
 
 # ImageUploader
 class ImageUploader < CarrierWave::Uploader::Base
-
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   if ENV['RAILS_ENV'] == 'test' || ENV['RAILS_ENV'] == 'development'
@@ -19,14 +18,14 @@ class ImageUploader < CarrierWave::Uploader::Base
 
     def public_id
       if model.is_a?(User)
-        "codeblog/users/#{model.username.to_s.downcase.gsub(/\W/, '-')}
-        -#{Time.now.to_i}"
+        "codeblog/users/#{model.username.to_s.downcase
+        .gsub(/\W/, '-')}-#{Time.now.to_i}"
       elsif model.is_a?(Article)
         "codeblog/articles/#{model.slug}-#{Time.now.to_i}"
       end
     end
   end
-  
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
