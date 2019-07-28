@@ -3,8 +3,8 @@
 # LikesController
 class LikesController < ApplicationController
   before_action :require_non_admin_user, only: %i[create destroy]
-  before_action :find_article, only: [:create]
-  before_action :find_like, only: [:destroy]
+  before_action :find_article, only: %i[create]
+  before_action :find_like, only: %i[destroy]
 
   def create
     @article.likes.create(user_id: current_user.id)

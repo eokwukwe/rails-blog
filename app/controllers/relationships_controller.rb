@@ -23,14 +23,4 @@ class RelationshipsController < ApplicationController
       format.js
     end
   end
-
-  private
-
-  # Prevent an admin from following other users
-  def require_non_admin_user
-    if current_user.admin?
-      flash[:danger] = 'Admin cannot follow or unfollow users'
-      redirect_to users_path
-    end
-  end
 end

@@ -10,8 +10,10 @@
     <i class="far fa-eye"></i>
     <%= article.view_count %>
   </span>
-  <span class="label label-comment">
+  <span class="label label-comment" >
     <i class="fas fa-comment-alt"></i>
-    0
+    <span id="comments-count">
+      <%= article.comments.count %>
+    </span>
   </span>
 </div>

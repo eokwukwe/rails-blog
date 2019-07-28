@@ -5,7 +5,7 @@ $navbar-default-color: #fff;
 @import 'bootstrap';
 
 body {
-  background-color: #f5f5f5;
+  background-color: #ebf0f4;
 }
 
 .tox-tinymce {
@@ -233,6 +233,88 @@ footer {
   }
 }
 
+.comment-form {
+  padding-left: 5px;
+
+  textarea {
+    border: none;
+    box-shadow: none;
+    background-color: #e1ebf3;
+  }
+
+  .comment-textarea {
+    margin-bottom: 5px;
+  }
+
+  textarea::placeholder {
+    color: #89c3f1;
+  }
+}
+
+.comment-section {
+  padding: 0;
+
+  .comments-list {
+    margin-top: 20px;
+  }
+}
+
+#comment-input {
+  resize: none;
+  min-height: 50px;
+  overflow: hidden;
+}
+
+.article-comment {
+  background-color: #ebf0f8;
+  padding: 10px 3px 10px;
+
+  .comment-metat-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 46px;
+    color: grey;
+
+    strong {
+      margin-right: 4px;
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+  }
+}
+
+.user-comment {
+  display: flex;
+
+  .user-image {
+    height: 40px;
+    img {
+      width: 40px;
+    }
+  }
+
+  .comment {
+    flex-grow: 1;
+    padding-left: 0;
+  }
+
+  .comment-content {
+    flex-grow: 1;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: none;
+  }
+
+  .comment-content.panel {
+    margin-bottom: 5px;
+  }
+}
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #fff;
@@ -253,5 +335,13 @@ footer {
 
   .article-card {
     min-height: 220px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .comment {
+    .col-lg-offset-1 {
+      margin-left: 0;
+    }
   }
 }

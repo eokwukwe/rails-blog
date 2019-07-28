@@ -1,0 +1,20 @@
+<% comments.each do |comment| %>
+<% if !comment.content.blank? %>
+<% commenter = commenter(comment.user_id) %>
+<div class="article-comment well">
+  <div class="user-comment">
+    <div class="user-image">
+      <%= gravatar_for commenter %>
+    </div>
+    <div class="comment-content panel">
+      <%= comment.content %>
+    </div>
+  </div>
+  <div class="comment-metat-data">
+    <strong><%= time_ago_in_words(comment.created_at) %> ago</strong>
+    <strong>by</strong>
+    <strong class="name"><%= commenter.username %></strong>
+  </div>
+</div>
+<% end %>
+<% end %>

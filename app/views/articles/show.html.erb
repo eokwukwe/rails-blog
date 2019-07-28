@@ -53,4 +53,24 @@
     <%= render 'like_form' %>
     <% end %>
   </div>
+  <hr>
+  <% if logged_in? && !current_user.admin %>
+  <div class="comment-section col-sm-8 col-sm-offset-1">
+    <div class="user-comment">
+      <div class="user-image">
+        <%= gravatar_for current_user %>
+      </div>
+      <div class="comment" id="comment-form">
+        <%= render 'comments/form' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="comment-section col-sm-8 col-sm-offset-1">
+    <% if @article.comments.any? %>
+    <div class="comments-list" id="comments-list">
+      <%= render "comments/comment", comments: @article.comments %>
+    </div>
+    <% end %>
+  </div>
 </div>

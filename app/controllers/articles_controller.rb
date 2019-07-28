@@ -74,6 +74,7 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Calculate read time on update
   def calculate_time_to_read(params)
     article_words = params[:description].split(' ').length
     params[:read_time] = (article_words.to_f / 250).ceil.to_s

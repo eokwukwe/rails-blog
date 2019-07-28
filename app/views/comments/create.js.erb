@@ -1,0 +1,3 @@
+$("#comment-form").html("<%= escape_javascript(render('comments/form')) %>");
+$("#comments-list").html("<%= escape_javascript(render('comments/comment', comments: @article.comments)) %>");
+$("#comments-count").html("</i><%= @article.comments.count %>");
